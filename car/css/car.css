@@ -1,0 +1,44 @@
+* {
+  border: 0;
+  padding: 0;
+  list-style: none; }
+
+.margin {
+  width: 1200px;
+  margin: 0 auto; }
+
+.header {
+  height: 144px;
+  background: #88ffad; }
+
+.footer {
+  height: 650px;
+  background: #a9a9fd; }
+
+main {
+  margin: 164px 0; }
+
+main p {
+  font: 14px/38px "";
+  color: #2e100f; }
+
+main table {
+  width: 1200px; }
+  main table thead {
+    font: 12px/30px "";
+    color: #2e100f;
+    height: 30px;
+    background: #f9f9f9; }
+  main table tbody td {
+    text-align: center; }
+  main table tbody tr {
+    height: 120px;
+    border-bottom: 1px dashed #ccc; }
+  main table tbody img {
+    width: 80px;
+    height: 60px; }
+  main table tbody input {
+    border: 1px solid #ccc; }
+  main table tbody .del {
+    width: 21px;
+    height: 21px; }

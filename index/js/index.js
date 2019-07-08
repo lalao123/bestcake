@@ -152,6 +152,7 @@ class List{
     display(){
       var str = "";
       for(var i=0;i<this.res.length;i++){
+        console.log(this.res.length)
         str += `<li index="${this.res[i].goodsId}">
                         <a href="../product/product.html">
                             <img src="${this.res[i].src}">

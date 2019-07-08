@@ -1,0 +1,23 @@
+
+/* 价格 */
+.price {height:220px;text-align: center; margin-top: -104px;width: 100%;background: #f5f5f5;overflow: hidden; }
+.price p {font: 14px/24px "";color: #131313;margin-top: 60px;}
+.price span{font: 14px/24px "";color: #949494;}
+.price p.p1{margin-top: 10px;}
+
+
+
+footer{background: url(../img/footer2.jpg) no-repeat center;height: 430px;overflow: hidden;font: 12px/2 "";color: #fff;}
+footer .f-top{font: 12px/2 "";color: #fff;margin-top: 116px;}
+footer .f-top :first-child{margin: 0 100px 0 382px;}
+footer .f-top :last-child{}
+footer ul{margin: 25px 0 0 192px;width:800px;}
+footer ul li{float: left;margin-left: 60px;}
+footer ul li:last-child{margin:40px 0 0 200px;}
+footer ul li a{font: 12px/2 "";color: #fff;}
+footer .f-bottom{margin-top: 143px;text-align: center;}
+footer .f-bottom p{}
+footer .f-bottom ul{width: 338px;height: 24px;margin:0 476px;}
+footer .f-bottom ul li{float: left;margin-left: 5px;}
+footer .f-bottom ul li span{margin:0 24px;}
+footer .f-bottom  ul li:last-child{margin:0;}

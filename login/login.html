@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../public.css">
+    <link rel="stylesheet"  href="./css/login.css">
+    <link rel="stylesheet" href="./data/header.css">
+    <link rel="stylesheet" href="./data/footer.css">
+    <script src="../jquery.2.2.4.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="h">
+
+    </div>
+    <script>
+
+        $(".h").load("http://localhost/1905/bestcake/index/data/head.html .head");
+    // console.log( $(".h").load())
+    </script>
+        <main>
+            <img src="./img/login_bg.jpg" alt="">
+            <div class="main-logon">
+                <ul>
+                    <li class="my-box1">登录</li>
+                    <li class="my-box2">注册</li>
+                </ul>
+                <!-- 登录 -->
+                <div class="box1">
+                   <em>使用手机验证码登录</em>
+                   <p class="p1"></p>
+                   <div class="box1-user">
+                       <div class="people-box"><i class="people bg"></i></div>
+                       <input type="text" id="user" placeholder="账号或qq号错误"><span></span>
+                   </div>
+                   <div class="box1-pass">
+                        <div class="user-box"><i class="user bg"></i></div>
+                        <input type="password" placeholder="用户密码" id="pass"><span></span>
+                    </div>
+                    <em>忘记密码？</em>
+                    <input type="button" id="btn" value="登录">
+                </div>
+                <!-- 注册 -->
+                <div class="box2">
+                   <em>使用手机号码注册</em>
+                   <p class="p2"></p>
+                    <input type="text" id="phone" placeholder="请填写手机号"><span></span>
+                    <input type="password" id="opass1" placeholder="请填写密码"><span></span>
+                    <input type="password" id="opass2" placeholder="请确认密码"><span></span>
+                    <div class="pass">
+                        <input type="text" placeholder="验证码" id="box2-code">
+                        <img src="./img/BaseImageValidCode.jpg" alt="">
+                        <em>看不清，换一张</em>
+                        <input type="button" id="btns" value="注册">
+                    </div>
+                </div>
+            </div>
+    </main>
+
+
+
+    <div class="f">
+
+    </div>
+    <script>
+        $(".f").load("http://localhost/1905/bestcake/index/data/head.html .footer");
+    </script>
+</body>
+<script src="./libs/require.js" data-main="js/main"></script>
+<script src="../jquery.2.2.4.js"></script>
+<script src="../ajax.2.0.js"></script>
+<script src="./js/login.js"></script>
+</html>
