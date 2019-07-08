@@ -1,0 +1,25 @@
+[{
+    "src":"./img/yogurt.png",
+    "name":"玫瑰女王",
+    "price":"￥228.00",
+    "num":"销量 327981",
+    "goodsId":"1"
+},{
+    "src":"./img/Forest.png",
+    "name":"红莓森林特供",
+    "price":"￥244.00",
+    "num":"销量 327981",
+    "goodsId":"2"  
+},{
+    "src":"./img/cheese.png",
+    "name":"冻烤燃情芝士",
+    "price":"￥288.00",
+    "num":"销量 327981",
+    "goodsId":"3"
+    
+},{ "src":"./img/pig.png",
+    "name":"可可猪",
+    "price":"￥218.00",
+    "num":"销量 327981",
+    "goodsId":"4"
+}]

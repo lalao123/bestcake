@@ -1,0 +1,25 @@
+[{
+    "src":"./img/yogurt.png",
+    "name":"玫瑰女王",
+    "price":"￥228.00",
+    "num":"销量 327981",
+    "goodsId":"1"
+},{
+    "src":"./img/spirit.png",
+    "name":"布朗尼精灵",
+    "price":"￥244.00",
+    "num":"销量 327981",
+    "goodsId":"2"  
+},{
+    "src":"./img/park.png",
+    "name":"星星游乐园",
+    "price":"￥288.00",
+    "num":"销量 327981",
+    "goodsId":"3"
+    
+},{ "src":"./img/pig.png",
+    "name":"可可猪",
+    "price":"￥218.00",
+    "num":"销量 327981",
+    "goodsId":"4"
+}]
