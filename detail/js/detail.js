@@ -39,6 +39,7 @@ class detail{
         for(var j=0;j<this.goods.length;j++){
           // console.log(this.goods.length)
           // console.log(1)
+          console.log(this.res.src1)
           if(this.res[i].goodsId == this.goods[j].id){
                   str += `<div class="main-head" index="${this.res[i].goodsId}">
                           <p> <span>经典系列</span> > <span>${this.res[i].name}</span></p>
@@ -85,7 +86,7 @@ class detail{
                                       <li><input type="number" min="1"></li>
                                   </ul>
                                   <span>加入购物车</span>
-                                  <button id="btn">立即购买</button>
+                                  <a href="../car/car.html"><button id="btn">立即购买</button></a>
                                 </div>
                             </div>
                         </div>`
@@ -100,32 +101,32 @@ new detail;
 
 
 //商品图片切换效果
-class Dtab{
-  constructor(options){
-    this.li = $(".small").children("li");
-    // console.log($(".margin li"))
-    this.big = $(".small").siblings(".big")
-    // this.child = options.div;
+// class Dtab{
+//   constructor(options){
+//     this.li = $(".small").children("li");
+//     // console.log($(".margin li"))
+//     this.big = $(".small").siblings(".big")
+//     // this.child = options.div;
     
-    this.init();
+//     this.init();
 
-  }
-  init(){
-    var that = this;
-    // console.log(this.li)
+//   }
+//   init(){
+//     var that = this;
+//     // console.log(this.li)
    
-    $(".shop").on("click",this.li,function(){
-      $(this.li).addClass("active").siblings().removeClass("active");
+//     $(".shop").on("click",this.li,function(){
+//       $(this.li).addClass("active").siblings().removeClass("active");
       
-      $(this.li).eq($(this).index()).show().siblings().hide();
-      console.log(1)
-    })
-  }
-}
-new Dtab({
-  li:$(".small").children("li"),
-  child:$("#txt").children("div")
-})
+//       $(this.li).eq($(this).index()).show().siblings().hide();
+//       console.log(1)
+//     })
+//   }
+// }
+// new Dtab({
+//   li:$(".small").children("li"),
+//   child:$("#txt").children("div")
+// })
 
 
 
@@ -149,3 +150,10 @@ $(document).ready(function(){
     
     
   })
+
+  //鼠标点击磅数选中
+//   $(".size").children("li").click(function(){
+//     console.log(1)
+//     $(this).css({"background":"#01d5d8","color":" #fff"})
+    
+// })
