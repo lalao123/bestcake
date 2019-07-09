@@ -39,22 +39,22 @@ class detail{
         for(var j=0;j<this.goods.length;j++){
           // console.log(this.goods.length)
           // console.log(1)
-          console.log(this.res.src1)
+          // console.log(this.res.src1)
           if(this.res[i].goodsId == this.goods[j].id){
                   str += `<div class="main-head" index="${this.res[i].goodsId}">
                           <p> <span>经典系列</span> > <span>${this.res[i].name}</span></p>
                             <div class="tu-left">
                             <div class="text" id="txt">
-                                <div>
+                                <div class="big">
                                   <img src="${this.res[i].bigtu1}"/>
                                 </div>
-                                <div>
+                                <div class="big">
                                   <img src="${this.res[i].bigtu2}"/>
                                 </div>
-                                <div>
+                                <div class="big">
                                   <img src="${this.res[i].bigtu3}"/>
                                 </div>
-                                <div>
+                                <div class="big">
                                   <img src="${this.res[i].bigtu4}"/>
                                 </div>
                             </div>
@@ -101,32 +101,27 @@ new detail;
 
 
 //商品图片切换效果
-// class Dtab{
-//   constructor(options){
-//     this.li = $(".small").children("li");
-//     // console.log($(".margin li"))
-//     this.big = $(".small").siblings(".big")
-//     // this.child = options.div;
+class Dtab{
+  constructor(options){
+    this.init();
     
-//     this.init();
-
-//   }
-//   init(){
-//     var that = this;
-//     // console.log(this.li)
-   
-//     $(".shop").on("click",this.li,function(){
-//       $(this.li).addClass("active").siblings().removeClass("active");
-      
-//       $(this.li).eq($(this).index()).show().siblings().hide();
-//       console.log(1)
-//     })
-//   }
-// }
-// new Dtab({
-//   li:$(".small").children("li"),
-//   child:$("#txt").children("div")
-// })
+  }
+  init(){
+    var that = this;
+    // console.log(this.li)
+    
+    $(".shop").on("click",".small li",function(){
+      // console.log(this)
+      $(this).addClass("active").siblings().removeClass("active");
+      $(".big").eq($(this).index()).show().siblings().hide();
+      // console.log(1)
+    })
+  }
+}
+new Dtab({
+  li:$(".small").children("li"),
+  child:$("#txt").children("div")
+})
 
 
 

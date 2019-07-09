@@ -86,7 +86,7 @@ class list{
                                 <p>Sweetness:<img src="./img/star_3.jpg"></p>
                                 <h2>${this.res[i].name}</h2>
                                 <b class="addcar">加入购物车</b>
-                                <b id="car">立即购买</b>
+                                <a href="../car/car.html"><b id="car">立即购买</b></a>
                             </li>`
               
           
