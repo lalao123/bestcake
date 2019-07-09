@@ -25,8 +25,8 @@
     "num":"销量 327981",
     "goodsId":"3",
     "bigtu1":"./img/cheese.jpg",
-    "bigtu2":"./img/cheese3.png",
-    "bigtu3":"./img/cheese4.png",
+    "bigtu2":"./img/cheese3.jpg",
+    "bigtu3":"./img/cheese4.jpg",
     "bigtu4":"./img/cheese1.jpg"
 },{ "src":"./img/cattle.png",
     "name":"极地牛乳",
@@ -42,17 +42,17 @@
     "price":"￥218.00",
     "num":"销量 327981",
     "goodsId":"5",
-    "bigtu1":"./img/yogurt1.png",
-    "bigtu2":"./img/yogurt2.png",
-    "bigtu3":"./img/yogurt3.png",
-    "bigtu4":"./img/yogurt4.png"  
+    "bigtu1":"./img/yogurt1.jpg",
+    "bigtu2":"./img/yogurt2.jpg",
+    "bigtu3":"./img/yogurt3.jpg",
+    "bigtu4":"./img/yogurt4.jpg"  
 },{ "src":"./img/yogurt.png",
     "name":"酸奶芝士",
     "price":"￥218.00",
     "num":"销量 327981",
     "goodsId":"6",
-    "bigtu1":"./img/yogurt1.png",
-    "bigtu2":"./img/yogurt2.png",
-    "bigtu3":"./img/yogurt3.png",
-    "bigtu4":"./img/yogurt4.png"  
+    "bigtu1":"./img/yogurt1.jpg",
+    "bigtu2":"./img/yogurt2.jpg",
+    "bigtu3":"./img/yogurt3.jpg",
+    "bigtu4":"./img/yogurt4.jpg"  
 }]

@@ -13,7 +13,7 @@ class List{
       this.cont.onclick = function(eve){
           var e = eve || window.event;
           var t = e.target || e.srcElement;
-          if(t.className == "box"){
+          if(t.className == "odiv"){
             // console.log(this.id)
               // 2.获取当前的商品ID
               that.id = t.parentNode.parentNode.getAttribute("index");
@@ -27,28 +27,28 @@ class List{
 
     this.goods = localStorage.getItem("goods");
 
-    if(this.goods){
-        // 不是第一次
-        // console.log(this.id)
-        this.goods = JSON.parse(this.goods)
+    // if(this.goods){
+    //     // 不是第一次
+    //     // console.log(this.id)
+    //     this.goods = JSON.parse(this.goods)
 
-        var onoff = true;
-        // 之后存
-        for(var i=0;i<this.goods.length;i++){
-            // 老的
-            if(this.goods[i].id == this.id){
-                this.goods[i].num++;
-                onoff = false;
-            }
-        }
-        // 新的
-        if(onoff){
-            this.goods.push({
-                id:this.id,
-                num:1
-            })
-        }
-    }else{
+    //     var onoff = true;
+    //     // 之后存
+    //     for(var i=0;i<this.goods.length;i++){
+    //         // 老的
+    //         if(this.goods[i].id == this.id){
+    //             this.goods[i].num++;
+    //             onoff = false;
+    //         }
+    //     }
+    //     // 新的
+    //     if(onoff){
+    //         this.goods.push({
+    //             id:this.id,
+    //             num:1
+    //         })
+    //     }
+    // }else{
         // 第一次存
         //     直接存
         // console.log(this.id)
@@ -57,7 +57,7 @@ class List{
             
             num:1
         }];
-    }
+    // }
     
     // 最后将数据设置回去
     localStorage.setItem("goods",JSON.stringify(this.goods))
@@ -76,8 +76,8 @@ class List{
       var str = "";
       for(var i=0;i<this.res.length;i++){
         str += `<li index="${this.res[i].goodsId}">
-                            <a href="../detail/detail.html">
-                                <img src="${this.res[i].src}">
+                            <a href="../detail/detail.html" >
+                                <img src="${this.res[i].src}" class="odiv">
                                 <p>${this.res[i].name}</p>
                                 <span>${this.res[i].price}</span>
                                 <b>${this.res[i].num}</b>

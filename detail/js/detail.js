@@ -8,7 +8,15 @@ class detail{
       this.init();
 
   }
-  
+  setData(callback){
+    for(var i=0;i<this.goods.length;i++){
+        if(this.goods[i].id == this.id){
+            callback(i);
+        }
+    }
+    localStorage.setItem("goods",JSON.stringify(this.goods));
+}
+
   init(){
       var that = this;
       ajaxPost(this.url,function(res){
@@ -24,7 +32,7 @@ class detail{
       this.display();    
     }
     display(){
-      console.log(this.res)
+      // console.log(this.res)
       var str = "";
       for(var i=0;i<this.res.length;i++){
         // console.log(1)
@@ -35,14 +43,25 @@ class detail{
                   str += `<div class="main-head" index="${this.res[i].goodsId}">
                           <p> <span>经典系列</span> > <span>${this.res[i].name}</span></p>
                             <div class="tu-left">
-                                <div class="big">
-                                  <img src="${this.res[i].bigtu1}" alt="">
+                            <div class="text" id="txt">
+                                <div>
+                                  <img src="${this.res[i].bigtu1}"/>
                                 </div>
+                                <div>
+                                  <img src="${this.res[i].bigtu2}"/>
+                                </div>
+                                <div>
+                                  <img src="${this.res[i].bigtu3}"/>
+                                </div>
+                                <div>
+                                  <img src="${this.res[i].bigtu4}"/>
+                                </div>
+                            </div>
                                 <ul class="small">
-                                  <li class="li1"><img src="${this.res[i].bigtu1}" alt=""></li>
-                                  <li class="li2"><img src="${this.res[i].bigtu2}" alt=""></li>
-                                  <li class="li3"><img src="${this.res[i].bigtu3}" alt=""></li>
-                                  <li class="li4"><img src="${this.res[i].bigtu4}" alt=""></li>
+                                  <li class="active"><img src="${this.res[i].bigtu1}" alt=""></li>
+                                  <li><img src="${this.res[i].bigtu2}" alt=""></li>
+                                  <li><img src="${this.res[i].bigtu3}" alt=""></li>
+                                  <li><img src="${this.res[i].bigtu4}" alt=""></li>
                                 </ul>
                             </div>
                             <div class="tu-right">
@@ -80,6 +99,33 @@ class detail{
 new detail;
 
 
+//商品图片切换效果
+class Dtab{
+  constructor(options){
+    this.li = $(".small").children("li");
+    // console.log($(".margin li"))
+    this.big = $(".small").siblings(".big")
+    // this.child = options.div;
+    
+    this.init();
+
+  }
+  init(){
+    var that = this;
+    // console.log(this.li)
+   
+    $(".shop").on("click",this.li,function(){
+      $(this.li).addClass("active").siblings().removeClass("active");
+      
+      $(this.li).eq($(this).index()).show().siblings().hide();
+      console.log(1)
+    })
+  }
+}
+new Dtab({
+  li:$(".small").children("li"),
+  child:$("#txt").children("div")
+})
 
 
 
