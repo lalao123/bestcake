@@ -2,7 +2,8 @@
 class detail{
   constructor(){
       this.shop = document.querySelector(".shop");
-      this.url = "http://localhost/1905/bestcake/detail/json/goods1.json";
+      // console.log(this.shop)
+      this.url = "http://localhost/1905/bestcake/index/json/goods1.json";
 
       this.init();
 
@@ -13,32 +14,35 @@ class detail{
       ajaxPost(this.url,function(res){
         that.res = JSON.parse(res)
         that.getData();
+
       })
     }
     getData(){
       this.goods = localStorage.getItem("goods") ? JSON.parse(localStorage.getItem("goods")) : [];
       
-      console.log(this.goods)
+      // console.log(this.goods)
       this.display();    
-  }
-  display(){
+    }
+    display(){
+      console.log(this.res)
       var str = "";
       for(var i=0;i<this.res.length;i++){
         // console.log(1)
-        // console.log(this.goods.length)
         for(var j=0;j<this.goods.length;j++){
+          // console.log(this.goods.length)
+          // console.log(1)
           if(this.res[i].goodsId == this.goods[j].id){
                   str += `<div class="main-head" index="${this.res[i].goodsId}">
                           <p> <span>经典系列</span> > <span>${this.res[i].name}</span></p>
                             <div class="tu-left">
                                 <div class="big">
-                                  <img src="${this.res[i].src1}" alt="">
+                                  <img src="${this.res[i].bigtu1}" alt="">
                                 </div>
                                 <ul class="small">
-                                  <li class="li1"><img src="${this.res[i].src1}" alt=""></li>
-                                  <li class="li2"><img src="${this.res[i].src2}" alt=""></li>
-                                  <li class="li3"><img src="${this.res[i].src3}" alt=""></li>
-                                  <li class="li4"><img src="${this.res[i].src4}" alt=""></li>
+                                  <li class="li1"><img src="${this.res[i].bigtu1}" alt=""></li>
+                                  <li class="li2"><img src="${this.res[i].bigtu2}" alt=""></li>
+                                  <li class="li3"><img src="${this.res[i].bigtu3}" alt=""></li>
+                                  <li class="li4"><img src="${this.res[i].bigtu4}" alt=""></li>
                                 </ul>
                             </div>
                             <div class="tu-right">
