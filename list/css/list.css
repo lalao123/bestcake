@@ -1,0 +1,17 @@
+* {  border: 0; padding: 0;list-style: none; }
+.margin { width: 1200px;margin: 0 auto; }
+
+main{margin-top: 164px;}
+main ul{width: 1160px;margin: 0 auto;}
+main ul li{float: left;width: 335px;text-align: center;margin: 10px 12px;}
+main ul li a{}
+main ul li a img{}
+main ul li span{margin-top: 50px;font: 24px/30px "";}
+main ul li em{}
+main ul li p{margin: 10px 0;}
+main ul li p img{}
+main ul li h2{font:600 22px/2 "";}
+main ul li b{font: 14px/2 "";border-right: 1px solid #ccc;padding: 0 10px;}
+main ul li #car{border: 0;}
+.main-b{margin-bottom: 160px;}
+.main-b img:nth-child(1){margin: 20px 0;}
