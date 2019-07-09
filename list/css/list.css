@@ -5,7 +5,7 @@ main{margin-top: 164px;}
 main ul{width: 1160px;margin: 0 auto;}
 main ul li{float: left;width: 335px;text-align: center;margin: 10px 12px;}
 main ul li a{}
-main ul li a img{}
+main ul li a img{width: 335px;height: 250px;}
 main ul li span{margin-top: 50px;font: 24px/30px "";}
 main ul li em{}
 main ul li p{margin: 10px 0;}

@@ -1,103 +1,101 @@
 
-class detail{
+class list{
   constructor(){
-      this.shop = document.querySelector(".shop");
-      // console.log(this.shop)
-      this.url = "http://localhost/1905/bestcake/index/json/goods1.json";
+      this.obox = document.querySelector(".obox");
+      console.log(this.obox)
+      this.url = "http://localhost/1905/bestcake/index/json/goods2.json";
 
       this.init();
+      this.addEvent();
 
-  }
-  setData(callback){
-    for(var i=0;i<this.goods.length;i++){
-        if(this.goods[i].id == this.id){
-            callback(i);
-        }
     }
-    localStorage.setItem("goods",JSON.stringify(this.goods));
-}
-
-  init(){
+    addEvent(){
       var that = this;
-      ajaxPost(this.url,function(res){
-        that.res = JSON.parse(res)
-        that.getData();
+      this.obox.onclick = function(eve){
+          var e = eve || window.event;
+          var t = e.target || e.srcElement;
+          if(t.className == "addcar"){
+            // 2.获取当前的商品ID
+            that.id = t.parentNode.getAttribute("index");
+            //  console.log(that.id)
+              // 3.存localstorage
+            
+              that.setData();
+          }
+        }
+      }
+  setData(){
 
-      })
+    this.goods = localStorage.getItem("goods");
+      //  console.log(this.goods)
+    if(this.goods){
+        // 不是第一次
+        // console.log(this.id)
+        this.goods = JSON.parse(this.goods)
+
+        var onoff = true;
+        // 之后存
+        for(var i=0;i<this.goods.length;i++){
+            // 老的
+            if(this.goods[i].id == this.id){
+                this.goods[i].num++;
+                onoff = false;
+            }
+        }
+        // 新的
+        if(onoff){
+            this.goods.push({
+                id:this.id,
+                num:1
+            })
+        }
+    }else{
+       // 第一次存
+        //    直接存
+        console.log(this.id)
+        this.goods = [{
+            id:this.id,
+            
+            num:1
+        }];
     }
-    getData(){
-      this.goods = localStorage.getItem("goods") ? JSON.parse(localStorage.getItem("goods")) : [];
-      
-      // console.log(this.goods)
-      this.display();    
+    
+    // 最后将数据设置回去
+    localStorage.setItem("goods",JSON.stringify(this.goods))
+}
+    init(){
+      var that = this;
+      ajax({
+        url:this.url,
+        success:function(res){
+          that.res = JSON.parse(res)
+          that.display()
+        }
+      })
     }
     display(){
       // console.log(this.res)
       var str = "";
       for(var i=0;i<this.res.length;i++){
-        // console.log(1)
-        for(var j=0;j<this.goods.length;j++){
-          // console.log(this.goods.length)
-          // console.log(1)
-          console.log(this.res.src1)
-          if(this.res[i].goodsId == this.goods[j].id){
-                  str += `<div class="main-head" index="${this.res[i].goodsId}">
-                          <p> <span>经典系列</span> > <span>${this.res[i].name}</span></p>
-                            <div class="tu-left">
-                            <div class="text" id="txt">
-                                <div>
-                                  <img src="${this.res[i].bigtu1}"/>
-                                </div>
-                                <div>
-                                  <img src="${this.res[i].bigtu2}"/>
-                                </div>
-                                <div>
-                                  <img src="${this.res[i].bigtu3}"/>
-                                </div>
-                                <div>
-                                  <img src="${this.res[i].bigtu4}"/>
-                                </div>
-                            </div>
-                                <ul class="small">
-                                  <li class="active"><img src="${this.res[i].bigtu1}" alt=""></li>
-                                  <li><img src="${this.res[i].bigtu2}" alt=""></li>
-                                  <li><img src="${this.res[i].bigtu3}" alt=""></li>
-                                  <li><img src="${this.res[i].bigtu4}" alt=""></li>
-                                </ul>
-                            </div>
-                            <div class="tu-right">
-                                <div class="r-top">
-                                  <p>${this.res[i].name}</p>
-                                  <h2>${this.res[i].price}</h2>
-                                  <span>甜度:  <img src="./img/star.png" alt=""></span>
-                                  <ul class="size">
-                                      <li><span>1.2磅</span></li>
-                                      <li><span>2.2磅</span></li>
-                                      <li><span>3.2磅</span></li>
-                                      <li><span>7.2磅</span></li>
-                                  </ul>
-                                </div>
-                                <div class="r-bottom">
-                                  <ul class="tableware">
-                                      <li><img src="./img/message-one.png" alt=""><span>13.5*13.5cm</span></li>
-                                      <li><img src="./img/message-one.png" alt=""><span>适合4-5人分享</span></li>
-                                      <li><img src="./img/message-one.png" alt=""><span>含五人份餐具</span></li>
-                                      <li><img src="./img/message-one.png" alt=""><span>至少需提前一天预约</span></li>
-                                      <li><input type="number" min="1"></li>
-                                  </ul>
-                                  <span>加入购物车</span>
-                                  <a href="../car/car.html"><button id="btn">立即购买</button></a>
-                                </div>
-                            </div>
-                        </div>`
-              }
-          }
+                  str += ` <li index="${this.res[i].goodsId}">
+                                <a href="../detail/detail.html">
+                                    <img src="${this.res[i].src}" alt="">
+                                </a>
+                                <span>${this.res[i].price}</span>
+                                <em>.00</em>
+                                <p>Sweetness:<img src="./img/star_3.jpg"></p>
+                                <h2>${this.res[i].name}</h2>
+                                <b class="addcar">加入购物车</b>
+                                <b id="car">立即购买</b>
+                            </li>`
+              
+          
       }
       // console.log(str)
-      this.shop.innerHTML = str;
+      this.obox.innerHTML = str;
   }
 }
-new detail;
+new list;
 
 
 //商品图片切换效果
