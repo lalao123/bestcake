@@ -1,0 +1,58 @@
+[{
+    "src":"./img/love.png",
+    "name":"奥利奥雪域牛乳芝士",
+    "price":"￥228.00",
+    "num":"销量 327981",
+    "goodsId":"1",
+    "src1":"./img/love-1.jpg",
+    "src2":"./img/love-2.jpg",
+    "src3":"./img/love-3.jpg" ,
+    "src4":"./img/love-4.jpg"  
+},{
+    "src":"./img/white.png",
+    "name":"白色红丝绒",
+    "price":"￥244.00",
+    "num":"销量 327981",
+    "goodsId":"2",
+    "src1":"./img/white2.jpg",
+    "src2":"./img/white3.jpg",
+    "src3":"./img/white4.jpg",
+    "src4":"./img/white-1.jpg"
+},{
+    "src":"./img/cheese.png",
+    "name":"冻烤燃情芝士",
+    "price":"￥288.00",
+    "num":"销量 327981",
+    "goodsId":"3",
+    "src1":"./img/cheese.jpg",
+    "src2":"./img/cheese3.png",
+    "src3":"./img/cheese4.png",
+    "src4":"./img/cheese1.jpg"
+},{ "src":"./img/cattle.png",
+    "name":"极地牛乳",
+    "price":"￥218.00",
+    "num":"销量 327981",
+    "goodsId":"4",
+    "src1":"./img/niu1.jpg",
+    "src2":"./img/niu2.jpg",
+    "src3":"./img/niu3.jpg",
+    "src4":"./img/niu4.jpg"
+},{ "src":"./img/yogurt.png",
+    "name":"酸奶芝士",
+    "price":"￥218.00",
+    "num":"销量 327981",
+    "goodsId":"5",
+    "src1":"./img/yogurt1.png",
+    "src2":"./img/yogurt2.png",
+    "src3":"./img/yogurt3.png",
+    "src4":"./img/yogurt4.png"  
+},{ "src":"./img/yogurt.png",
+    "name":"酸奶芝士",
+    "price":"￥218.00",
+    "num":"销量 327981",
+    "goodsId":"6",
+    "src1":"./img/yogurt1.png",
+    "src2":"./img/yogurt2.png",
+    "src3":"./img/yogurt3.png",
+    "src4":"./img/yogurt4.png"  
+}]

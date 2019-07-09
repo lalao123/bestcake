@@ -24,12 +24,6 @@ class List{
       }
   }
   setData(){
-    // console.log(this.id);
-    // 保存多个商品，数量，一条本地存储
-    // 数组中放对象的形式处理数据
-    // 每个对象是一个商品
-    // 整个数组是一条本地存储
-    // [{id:"adsa",num:1},{},{}]
 
     this.goods = localStorage.getItem("goods");
 
@@ -82,10 +76,12 @@ class List{
       var str = "";
       for(var i=0;i<this.res.length;i++){
         str += `<li index="${this.res[i].goodsId}">
-                            <img src="${this.res[i].src}">
-                            <p>${this.res[i].name}</p>
-                            <span>${this.res[i].price}</span>
-                            <b>${this.res[i].num}</b>
+                            <a href="../detail/detail.html">
+                                <img src="${this.res[i].src}">
+                                <p>${this.res[i].name}</p>
+                                <span>${this.res[i].price}</span>
+                                <b>${this.res[i].num}</b>
+                            </a>
                             <a href="../car/car.html"><i class="box"></i></a>
                     </li>`
       }
