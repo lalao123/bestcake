@@ -14,12 +14,12 @@ class Tab{
         $(this).addClass("active").siblings().removeClass("active");
         
         that.child.eq($(this).index()).show().siblings().hide();
-        console.log(0)
+        // console.log(0)
       })
       this.tea.on("mouseleave",function(){
         console.log(this.pt)
         that.child.eq($(this).index()).hide();
-        console.log(1)
+        // console.log(1)
 
       })
     }

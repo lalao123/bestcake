@@ -85,7 +85,6 @@ class detail{
                                       <li><img src="./img/message-one.png" alt=""><span>至少需提前一天预约</span></li>
                                       <li><input type="number" min="1"></li>
                                   </ul>
-                                  <span>加入购物车</span>
                                   <a href="../car/car.html"><button id="btn">立即购买</button></a>
                                 </div>
                             </div>
@@ -113,7 +112,12 @@ class Dtab{
     $(".shop").on("click",".small li",function(){
       // console.log(this)
       $(this).addClass("active").siblings().removeClass("active");
-      $(".big").eq($(this).index()).show().siblings().hide();
+      $(".big").eq($(this).index()).css({top:-440,display:"block"}).stop().animate({
+  
+        // display:"block",
+        top:0
+       
+      },1000).siblings().css({display:"none",top:-440})
       // console.log(1)
     })
   }

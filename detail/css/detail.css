@@ -28,9 +28,11 @@ main {
       border: 1px solid #f2f2f2;
       border-radius: 5px; }
   main .tu-left {
+ 
     height: 538px;
     float: left; }
-    main .tu-left .text div{display: none;}
+    main .tu-left .text{ position: relative;height: 440px;overflow: hidden;width: 720px;}
+    main .tu-left .text div{display: none;position: absolute;}
     main .tu-left .text div:nth-child(1){display: block;}
     main .tu-left .big img {
       width: 717px;
