@@ -1,7 +1,7 @@
 class Car{
     constructor(){
         this.tbody = document.querySelector("tbody");
-        this.url = "http://localhost/1905/bestcake/index/json/goods1.json";
+        this.url = "http://localhost/1905/bestcake/index/json/goods2.json";
 
         this.init();
         // 1.删除：绑定删除按钮的事件

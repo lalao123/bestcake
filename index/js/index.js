@@ -148,7 +148,7 @@ class List{
     display(){
       var str = "";
       for(var i=0;i<this.res.length;i++){
-        console.log(this.res.length)
+        // console.log(this.res.length)
         str += `<li index="${this.res[i].goodsId}">
                         <a href="../product/product.html">
                             <img src="${this.res[i].src}">
@@ -308,111 +308,175 @@ $(".banner-right").banner({
     right:$(".banner-right #right"),
     list:true,
     autoPlay:true,
-    delaytime:3000,
-    movetime:2000,
+    delaytime:4000,
+    movetime:3000,
     index:0
 });
 
 
 //搜索框效果
-function search(){
-  this.input=document.getElementById("txt");
-  this.ul=document.getElementsByTagName("ul")[0];
-  this.index=0;
-  this.code=0;
-  this.init()
- }
- search.prototype.init=function(){
-     this.input.onkeyup=function(e){
-         var e=event||window.event;
-         var code=e.keyCode||e.which;
-          this.code=code;
-       this.value=this.input.value; 
-          this.ferret(this.value);
-     }.bind(this)
+// function search(){
+//   this.input=document.getElementById("txt");
+//   this.ul=document.getElementsByTagName("ul")[0];
+//   this.index=0;
+//   this.code=0;
+//   this.init()
+//  }
+//  search.prototype.init=function(){
+//      this.input.onkeyup=function(e){
+//          var e=event||window.event;
+//          var code=e.keyCode||e.which;
+//           this.code=code;
+//        this.value=this.input.value; 
+//           this.ferret(this.value);
+//      }.bind(this)
     
- }
- search.prototype.ferret=function(x){
-     var script=document.createElement("script");
-     var wd=x;
-      script.src="https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=29358,1451,21116,29073,29238,28519,29099,29131,29368,28833,29221,26350&wd="+ wd +"&req=2&csor=1&cb=jQuery110209493171718918971_1561298781420&_=1561298781423"
-      document.body.appendChild(script);
-      this.ul.style.display="block";
-      this.li=this.ul.getElementsByTagName("li");
-      this.over();
-  }
-  search.prototype.over=function(){
-      // console.log(this.li)
-      //鼠标事件
-      var that=this;
-      this.ul.onmouseover=function(e){
-          var e=event||window.event;
-          var target=e.target||e.srcElement;
-          if(target.nodeName=="LI"){
-          target.style.background="#ccc";
-            target.onclick=function(){
-           that.input.value=target.innerHTML;
-            that.ul.style.display="none";
-          }
-          }
-      }
-      this.ul.onmouseout=function(e){
-          var e=event||window.event;
-          var target=e.target||e.srcelement;
-          if(target.nodeName=="LI"){
-              target.style.background="#fff";
-          }
-      }
-   this.key();
-  }
-  search.prototype.key=function(){
-      var that=this;
-      document.onkeydown=function(e){
-          var e=event||window.event;
-          var code=e.keyCode||e.which;
-              that.code=code;
-          // console.log(this.code)
-      console.log(this.code)
-      // if(this.code==0)return;
-      if(this.code==38){
-              if(this.index==0){
-                  this.index=0;
-              }else{this.index--}
-              for(var i=0;i<this.li.length;i++){
-               this.li[i].className="";
-          }
-          this.li[this.index].classList.add('active');
-          }
-          // console.log(that.li.length)
-          if(this.code==40){
-              if(this.index==that.li.length-1){
-                  this.index=that.li.length-1;
-              }else{
-                  this.index++;
-              }
-              for(var i=0;i<this.li.length;i++){
-               this.li[i].className="";
-                }
-              this.li[this.index].classList.add('active');
-              // this.li[this.index].style.background="red";
-          }
-      }
-  } 
- function jQuery110209493171718918971_1561298781420(data){
-     var ul=document.getElementsByTagName("ul")[0];
-      ul.innerHTML="";
-      if(data.g==undefined){
-          return;
-      }else{
-     for(var i=0;i<data.g.length;i++){
-         var oli=document.createElement("li");
-         oli.innerHTML=data.g[i].q;
-         ul.appendChild(oli);
-      }
-  }
- }
+//  }
+//  search.prototype.ferret=function(x){
+//      var script=document.createElement("script");
+//      var wd=x;
+//       script.src="https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=29358,1451,21116,29073,29238,28519,29099,29131,29368,28833,29221,26350&wd="+ wd +"&req=2&csor=1&cb=jQuery110209493171718918971_1561298781420&_=1561298781423"
+//       document.body.appendChild(script);
+//       this.ul.style.display="block";
+//       this.li=this.ul.getElementsByTagName("li");
+//       this.over();
+//   }
+//   search.prototype.over=function(){
+//       // console.log(this.li)
+//       //鼠标事件
+//       var that=this;
+//       this.ul.onmouseover=function(e){
+//           var e=event||window.event;
+//           var target=e.target||e.srcElement;
+//           if(target.nodeName=="LI"){
+//           target.style.background="#ccc";
+//             target.onclick=function(){
+//            that.input.value=target.innerHTML;
+//             that.ul.style.display="none";
+//           }
+//           }
+//       }
+//       this.ul.onmouseout=function(e){
+//           var e=event||window.event;
+//           var target=e.target||e.srcelement;
+//           if(target.nodeName=="LI"){
+//               target.style.background="#fff";
+//           }
+//       }
+//    this.key();
+//   }
+//   search.prototype.key=function(){
+//       var that=this;
+//       document.onkeydown=function(e){
+//           var e=event||window.event;
+//           var code=e.keyCode||e.which;
+//               that.code=code;
+//           // console.log(this.code)
+//       console.log(this.code)
+//       // if(this.code==0)return;
+//       if(this.code==38){
+//               if(this.index==0){
+//                   this.index=0;
+//               }else{this.index--}
+//               for(var i=0;i<this.li.length;i++){
+//                this.li[i].className="";
+//           }
+//           this.li[this.index].classList.add('active');
+//           }
+//           // console.log(that.li.length)
+//           if(this.code==40){
+//               if(this.index==that.li.length-1){
+//                   this.index=that.li.length-1;
+//               }else{
+//                   this.index++;
+//               }
+//               for(var i=0;i<this.li.length;i++){
+//                this.li[i].className="";
+//                 }
+//               this.li[this.index].classList.add('active');
+//               // this.li[this.index].style.background="red";
+//           }
+//       }
+//   } 
+//  function jQuery110209493171718918971_1561298781420(data){
+//      var ul=document.getElementsByTagName("ul")[0];
+//       ul.innerHTML="";
+//       if(data.g==undefined){
+//           return;
+//       }else{
+//      for(var i=0;i<data.g.length;i++){
+//          var oli=document.createElement("li");
+//          oli.innerHTML=data.g[i].q;
+//          ul.appendChild(oli);
+//       }
+//   }
+//  }
 
- new search();
+//  new search();
+
+//公共头部去登陆效果
+class Index{
+  constructor(){
+      this.notLogin = document.querySelector(".not-login")
+      this.loginS = document.querySelector(".login-success")
+      this.user = document.querySelector(".login-success span")
+
+      this.logout = document.querySelector(".logout");
+
+      // 获取所有的用户信息
+      this.init();
+      // 添加注销事件
+      this.addEvent();
+  }
+  addEvent(){
+      // 点击注销时
+      this.logout.onclick = ()=>{
+        for(var i=0;i<this.usermsg.length;i++){
+          // console.log(this.usermsg.length)
+              // 找到要注销的账号
+              console.log(this.user)
+              console.log(this.name == this.usermsg[i].user)
+              if(this.name == this.usermsg[i].user){
+                  // 修改当前账号的登录状态为0
+                  this.usermsg[i].onoff = 0;
+                  // 隐藏登录成功的信息
+                  this.notLogin.style.display = "block";
+                  this.loginS.style.display = "none";
+                  // 再将用户的信息设置回去，实现真正的注销
+                  localStorage.setItem("usermsg",JSON.stringify(this.usermsg))
+                  // 结束
+                  return ;
+              }
+          }
+      }
+  }
+  init(){
+      // 获取所有的用户信息直接转换，方便使用
+      this.usermsg = localStorage.getItem("usermsg") ? JSON.parse(localStorage.getItem("usermsg")) : [];
+      // 开始验证
+      this.check()
+  }
+  check(){
+      // 拿到所有的信息
+      for(var i=0;i<this.usermsg.length;i++){
+          // 判断哪个用户的状态为已登录
+          if(this.usermsg[i].onoff == 1){
+              // 显示登录成功的信息
+              this.notLogin.style.display = "none";
+              this.loginS.style.display = "block";
+              //设置当前用户名
+              this.user.innerHTML = this.usermsg[i].user;
+              // 保存当前用户名，用作注销
+              this.name = this.usermsg[i].user;
+              
+              return;
+          }
+      }
+  }
+}
+
+new Index;
+
 
 
 //banner图二级菜单
