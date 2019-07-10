@@ -41,7 +41,7 @@ class Login{
         // 遍历所有的用户名
         for(var i=0;i<this.usermsg.length;i++){
             // 每次判断当前用户名是否和指定用户名密码是否符合
-            if(this.usermsg[i].user == this.user.value && this.usermsg[i].pass == this.pass.value){
+            if(this.usermsg[i].user == this.user.value && this.usermsg[i].pass1 == this.pass.value){
                 // 如果符合，登录成功，修改账号状态
                 this.usermsg[i].onoff = 1;
                 // 在存回去，才能实现修改
@@ -57,7 +57,11 @@ class Login{
             }
         }
         // 如果没结束，表示登录失败，那么显示失败信息
-        this.msg.innerHTML = "账号密码不符，清重新登录，或去注册"
+        this.msg.innerHTML = "账号密码不符，请重新登录或去注册"
+        setTimeout(() => {
+            this.msg.style.cssText = "display:none";
+            // this.msg.style.cssText = "border:0";
+        },2000)
     }
 }
 
@@ -70,14 +74,15 @@ class Register{
     constructor(){
         this.user = document.querySelector("#phone");
         this.pass1 = document.querySelector("#opass1");
-        this.btn = document.querySelector("#btn");
+        this.pass2 = document.querySelector("#opass2");
+        this.btns = document.querySelector("#btns");
         this.msg = document.querySelector(".p2");
-
+          
         this.init()
     }
     init(){
         var that = this;
-        this.btn.onclick = function(){
+        this.btns.onclick = function(){
             // 先获取指定的localStorage，用来判断是否是第一次注册
             that.getUserMsg()
         }
@@ -95,10 +100,17 @@ class Register{
             // 第一次
             this.usermsg = [{
                 user:this.user.value,
-                pass:this.pass1.value,
+                pass1:this.pass1.value,
+                pass2:this.pass2.value,
                 onoff:0
             }]
-            this.msg.innerHTML = "";
+             this.msg.innerHTML = "注册成功";
+            // this.msg.style.cssText = "display:block"
+            setTimeout(() => {
+                this.msg.style.cssText = "display:none";
+                // this.msg.style.cssText = "border:0";
+            },2000)
+            
         }else{
             // 不是第一次:获取的同时，转成数组，然后开始判断是否重名
             this.usermsg = JSON.parse(localStorage.getItem("usermsg"));
@@ -111,7 +123,8 @@ class Register{
             this.msg.innerHTML = "";
             this.usermsg.push({
                 user:this.user.value,
-                pass:this.pass1.value,
+                pass1:this.pass1.value,
+                pass2:this.pass2.value,
                 onoff:0
             })
         }
