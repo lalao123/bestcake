@@ -79,7 +79,7 @@ class list{
       for(var i=0;i<this.res.length;i++){
                   str += ` <li index="${this.res[i].goodsId}">
                                 <a href="../detail/detail.html" class="aimg">
-                                    <img data-src="${this.res[i].src}" src="./img/loading.jpg" alt="">
+                                    <img src="${this.res[i].src}" alt="">
                                 </a>
                                 <span>${this.res[i].price}</span>
                                 <em>.00</em>
@@ -178,13 +178,6 @@ $(document).ready(function(){
     
   })
 
-  //鼠标点击磅数选中
-//   $(".size").children("li").click(function(){
-//     console.log(1)
-//     $(this).css({"background":"#01d5d8","color":" #fff"})
-    
-// })
-
 //懒加载
 // function isShow($el){
 //   console.log(1)
@@ -219,47 +212,3 @@ $(document).ready(function(){
 
 //   $cur.data('isloaded',true);
 // }
-class Lazylog{
-    constructor(arr){
-      this.aimg = $(".aimg").children("img");
-      this.scrollH = $(window).scrollTop();
-      this.init();
-    }
-    init(){
-      var that = this;
-      this.aimg.on("scroll",function(){
-        for(var i=0;i<arr.length;i++){
-          if(arr[i].src !="")continue;
-
-          if(arr[i].offsetTop < clientH + scrollT){
-              arr[i].src = arr[i].getAttribute("data-src");
-              console.log(`第${i}张可以加载了`)
-          }
-      }
-    })
-  }
-} 
-new Lazylog()
-//     $(document).ready(function(){
-//       var p =0,t=0;
-//       $(window).scroll(function(){
-//         p=$(this).scrollTop();
-//         if(t<=p){
-    
-//           $("img").attr("data-src",function(){return this.src})
-//         }else{
-//           $("img").attr(src,"./img/loading.jpg")
-    
-//         }
-//         setTimeout(function(){t=p},0)
-//       })
-      
-      
-//     })
-//   }
-// }
-
-
-
-
-

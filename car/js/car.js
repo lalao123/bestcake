@@ -34,21 +34,26 @@ class Judg{
         if($(this).is(":checked")==false){
         
           $('.check1').prop('checked',false)
-        //   t.count+=that.target;
+    
   
           that.setPrice()
-        //  sole.log($(this).parent().parent().children('li').eq(4).val())
+        
         }
       });
       $('.low').on('click','.reduce',function(){
-        if($(this).val()==0 ||$(this).val()==''){
-          console.log(1)
-          $(this).val(1)
+        console.log(1)
+        if(Number($(this).next().val())==1){
+          $(this).next().val(1)
+        }else{
+          $(this).next().val(parseFloat($(this).next().val())-1)
+
         }
+        // console.log(parseFloat($(this).next().val())-1)
         that.num=parseFloat($(this).next().val())
         that.id=$(this).parent().parent().parent().attr('index')
+        // console.log(that.id)
         $(this).parent().next().html((parseFloat($(this).parent().prev().html().substr(1))*that.num).toFixed(2)) 
-    //    nt=parseFloat($(this).parent().next().html())
+ 
           that.setPrice()
         
         that.changeLocal()
@@ -83,7 +88,11 @@ class Judg{
     })
   
         $(this).blur(function(){
-          if(parseFloat($(this).val()==0)){
+          // if(parseFloat($(this).val())==0 || $(this).val()==''){
+          //   $(this).val(1)
+          // }
+          if(parseFloat($(this).val())==0 ||$(this).val()==''){
+            // console.log(1)
             $(this).val(1)
           }
           that.id=$(this).parent().parent().parent().attr('index')
@@ -105,7 +114,7 @@ class Judg{
         if(this.goods[i].id==this.id){
           this.goods[i].num=this.num
        
-      }
+        }
       }
   
     localStorage.setItem('goods',JSON.stringify(this.goods))
