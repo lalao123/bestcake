@@ -24,9 +24,11 @@
 
 #banner .banner-left .b-left-t ul li,.b-left-b ul li{float: left; font: 14px/45px "";color: #fff;margin-left: 20px;} 
 #banner .banner-left .b-left-t ul li:nth-child(1){}
+.b-left-b ul li:nth-child(3){float: right;margin-right: 20px;}
 
+#banner .banner-left .b-left-t ul li:nth-child(3){float: right;margin-right: 20px;}
 #banner .banner-left .b-left-t .obox1 ul li:nth-child(2){margin-left: 20px;margin-right: 0;}
-#banner .banner-left .b-left-b ul li:nth-child(2){margin:0 54px 0 16px; }
+#banner .banner-left .b-left-b ul li:nth-child(2){margin:0 26px 0 16px; }
  .b-left-t ul li img,.b-left-b ul li img{width: 22px;height: 22px;margin-left: 25px; }
 #banner .banner-right{float:left;margin: -442px 0 0 228px;width: 972px;position: relative;height: 442px;overflow: hidden;}
 #banner .banner-right img{width: 972px;height: 442px;position: absolute;left: 972px;}

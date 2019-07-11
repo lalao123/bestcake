@@ -17,7 +17,7 @@ class Tab{
         // console.log(0)
       })
       this.tea.on("mouseleave",function(){
-        console.log(this.pt)
+        // console.log(this.pt)
         that.child.eq($(this).index()).hide();
         // console.log(1)
 
