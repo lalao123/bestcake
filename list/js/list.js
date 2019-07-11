@@ -2,8 +2,8 @@
 class list{
   constructor(){
       this.obox = document.querySelector(".obox");
-      console.log(this.obox)
-      this.url = "http://localhost/1905/bestcake/index/json/goods2.json";
+      // console.log(this.obox)
+      this.url = "http://localhost/1905/bestcake/list/json/goods1.json";
 
       this.init();
       this.addEvent();
@@ -78,8 +78,8 @@ class list{
       var str = "";
       for(var i=0;i<this.res.length;i++){
                   str += ` <li index="${this.res[i].goodsId}">
-                                <a href="../detail/detail.html">
-                                    <img src="${this.res[i].src}" alt="">
+                                <a href="../detail/detail.html" class="aimg">
+                                    <img data-src="${this.res[i].src}" src="./img/loading.jpg" alt="">
                                 </a>
                                 <span>${this.res[i].price}</span>
                                 <em>.00</em>
@@ -97,39 +97,68 @@ class list{
 }
 new list;
 
+//公共头部去登陆效果
+class Index{
+  constructor(){
+      this.notLogin = document.querySelector(".not-login")
+      this.loginS = document.querySelector(".login-success")
+      this.user = document.querySelector(".login-success span")
 
-//商品图片切换效果
-// class Dtab{
-//   constructor(options){
-//     this.li = $(".small").children("li");
-//     // console.log($(".margin li"))
-//     this.big = $(".small").siblings(".big")
-//     // this.child = options.div;
-    
-//     this.init();
+      this.logout = document.querySelector(".logout");
 
-//   }
-//   init(){
-//     var that = this;
-//     // console.log(this.li)
-   
-//     $(".shop").on("click",this.li,function(){
-//       $(this.li).addClass("active").siblings().removeClass("active");
-      
-//       $(this.li).eq($(this).index()).show().siblings().hide();
-//       console.log(1)
-//     })
-//   }
-// }
-// new Dtab({
-//   li:$(".small").children("li"),
-//   child:$("#txt").children("div")
-// })
+      // 获取所有的用户信息
+      this.init();
+      // 添加注销事件
+      this.addEvent();
+  }
+  addEvent(){
+      // 点击注销时
+      this.logout.onclick = ()=>{
+        for(var i=0;i<this.usermsg.length;i++){
+          // console.log(this.usermsg.length)
+              // 找到要注销的账号
+              console.log(this.user)
+              console.log(this.name == this.usermsg[i].user)
+              if(this.name == this.usermsg[i].user){
+                  // 修改当前账号的登录状态为0
+                  this.usermsg[i].onoff = 0;
+                  // 隐藏登录成功的信息
+                  this.notLogin.style.display = "block";
+                  this.loginS.style.display = "none";
+                  // 再将用户的信息设置回去，实现真正的注销
+                  localStorage.setItem("usermsg",JSON.stringify(this.usermsg))
+                  // 结束
+                  return ;
+              }
+          }
+      }
+  }
+  init(){
+      // 获取所有的用户信息直接转换，方便使用
+      this.usermsg = localStorage.getItem("usermsg") ? JSON.parse(localStorage.getItem("usermsg")) : [];
+      // 开始验证
+      this.check()
+  }
+  check(){
+      // 拿到所有的信息
+      for(var i=0;i<this.usermsg.length;i++){
+          // 判断哪个用户的状态为已登录
+          if(this.usermsg[i].onoff == 1){
+              // 显示登录成功的信息
+              this.notLogin.style.display = "none";
+              this.loginS.style.display = "block";
+              //设置当前用户名
+              this.user.innerHTML = this.usermsg[i].user;
+              // 保存当前用户名，用作注销
+              this.name = this.usermsg[i].user;
+              
+              return;
+          }
+      }
+  }
+}
 
-
-
-
-
+new Index;
 
 //公共头部的滚动产生阴影
 $(document).ready(function(){
@@ -155,3 +184,82 @@ $(document).ready(function(){
 //     $(this).css({"background":"#01d5d8","color":" #fff"})
     
 // })
+
+//懒加载
+// function isShow($el){
+//   console.log(1)
+//   var winH = $(window).height();//获取窗口高度
+//   var scrollH = $(window).scrollTop();//获取窗口滚动高度
+//   var top = $el.offset().top;//获取元素距离窗口顶部偏移高度
+//   if(top < scrollH + winH){
+//       return true;//在可视范围
+//     }else{
+//       return false;//不在可视范围
+//     }
+//   }
+//   $(window).on("scroll", function(){//监听滚动事件
+//     checkShow();
+// })
+// checkShow();
+// function checkShow(){//检查元素是否在可视范围内
+//     $('img').each(function(){//遍历每一个元素
+//         var $cur = $(this);
+//         console.log($cur)
+//         if(!isloaded($cur)){return false;}//判断是否已加载
+//         if (isShow($cur)) {
+//           setTimeout(function(){
+//             showImg($cur);
+//             })//设置时间是为了更好的看出效果
+//         };
+//     });
+// }
+// function showImg($el){
+//   console.log(1)
+//   $el.attr('src', $el.attr('data-src'));
+
+//   $cur.data('isloaded',true);
+// }
+class Lazylog{
+    constructor(arr){
+      this.aimg = $(".aimg").children("img");
+      this.scrollH = $(window).scrollTop();
+      this.init();
+    }
+    init(){
+      var that = this;
+      this.aimg.on("scroll",function(){
+        for(var i=0;i<arr.length;i++){
+          if(arr[i].src !="")continue;
+
+          if(arr[i].offsetTop < clientH + scrollT){
+              arr[i].src = arr[i].getAttribute("data-src");
+              console.log(`第${i}张可以加载了`)
+          }
+      }
+    })
+  }
+} 
+new Lazylog()
+//     $(document).ready(function(){
+//       var p =0,t=0;
+//       $(window).scroll(function(){
+//         p=$(this).scrollTop();
+//         if(t<=p){
+    
+//           $("img").attr("data-src",function(){return this.src})
+//         }else{
+//           $("img").attr(src,"./img/loading.jpg")
+    
+//         }
+//         setTimeout(function(){t=p},0)
+//       })
+      
+      
+//     })
+//   }
+// }
+
+
+
+
+
